@@ -8,7 +8,6 @@ export default function Header() {
             return true
         }
     }
-    console.log(location.pathname)
   return (
     <div className='bg-white border-b shadow-sm sticky top-0 z-50'>
         <header className='flex justify-between px-3 max-w-6xl mx-auto items-center'>
