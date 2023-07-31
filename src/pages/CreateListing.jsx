@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 export default function CreateListing() {
     const navigate = useNavigate();
     const auth = getAuth();
+    // geolocationEnabled state is supposed to be true but my bank card isn't working in the billing registration on the google console which will grant me access to the geocoding API
     const [geolocationEnabled, setGeolocationEnabled] = useState(false);
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
@@ -153,7 +154,8 @@ export default function CreateListing() {
             ...formData,
             imgUrls,
             geolocation,
-            timeStamp : serverTimestamp(),
+            timestamp : serverTimestamp(),
+            userRef: auth.currentUser.uid,
         };
 
         delete formDataCopy.images;
